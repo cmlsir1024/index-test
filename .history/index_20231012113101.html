@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>运营商入口</title>
+    <script src="./js/vue.js"></script>
+    <!-- 引入样式 -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" /> -->
+    <!-- 引入组件库 -->
+    <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+    <!-- <script src="./js/vue.js"></script> -->
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./css/element-ui.css" />
+    <!-- 引入组件库 -->
+    <script src="./js/element-ui.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+        /* background-color: #5e95dd; */
+      }
+
+      .tag {
+        width: 60px;
+        height: 30px;
+        background: #a5bbd8;
+        word-wrap: break-word;
+        font-size: 12px;
+        pointerevents: none;
+      }
+
+      .table-man {
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        z-index: 999 !important;
+      }
+
+      /*最外层透明*/
+      .el-table,
+      .el-table__expanded-cell {
+        /* background-color: transparent; */
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* 表格内背景颜色 */
+      .el-table th,
+      .el-table tr,
+      .el-table td {
+        /* background-color: rgba(94, 150, 223); */
+      }
+
+      .el-dropdown-link {
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .el-icon-arrow-down {
+        font-size: 16px;
+      }
+
+      .ListCss {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* width: 100%; */
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .ist-add {
+      }
+      .icolor {
+        color: chartreuse;
+      }
+      .xiacolor {
+        color: dimgrey;
+      }
+
+      /* .buttonCss {
+      margin-left: 50%;
+    } */
+      .el-table tr {
+        background-color: transparent;
+      }
+      .box {
+        justify-content: center;
+      }
+      .buttons {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h3 style="background-color: aqua; text-align: center">运营商入口</h3>
+      <div class="box">
+        <el-row>
+          <el-col :span="10" v-for="item in dataList">
+            <el-button
+              class="buttons"
+              size="mini"
+              @click="handleInfo(item.url)"
+              type="primary"
+            >
+              {{item.name}}
+            </el-button>
+          </el-col>
+        </el-row>
+
+        <el-dialog
+          title="扫码进入入口"
+          :visible.sync="dialogVisible"
+          width="80%"
+        >
+          <el-image
+            style="width: 100px; height: 100px"
+            :src="jpgList"
+          ></el-image>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">
+              确 定
+            </el-button>
+          </span>
+        </el-dialog>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var vm = new Vue({
+      el: "#app",
+
+      data: function () {
+        return {
+          radio1: "",
+          dataList: [
+            { name: "263云卡实名入口", id: 1, url: "./asstas/1.jpg" },
+            { name: "民生实名入口", id: 2, url: "./asstas/2.jpg" },
+            { name: "u友实名入口", id: 3, url: "./asstas/3.jpg" },
+            { name: "懂得实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "国美实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "三五实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "北纬实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "星美实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "海航实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "青牛实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "红豆实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "话机世界实名入口", id: 4, url: "./asstas/4.jpg" },
+            { name: "广电实名入口", id: 4, url: "./asstas/4.jpg" },
+          ],
+          dialogVisible: false,
+          jpgList: "",
+        };
+      },
+      created: function () {},
+      mounted: function () {},
+      methods: {
+        handleInfo(str) {
+          console.log(str);
+          this.jpgList = str;
+          this.dialogVisible = true;
+        },
+      },
+    });
+  </script>
+</html>

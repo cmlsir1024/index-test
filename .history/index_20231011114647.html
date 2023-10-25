@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>glb文件渲染</title>
+    <script src="./js/vue.js"></script>
+    <!-- 引入样式 -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" /> -->
+    <!-- 引入组件库 -->
+    <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+    <!-- <script src="./js/vue.js"></script> -->
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./css/element-ui.css" />
+    <!-- 引入组件库 -->
+    <script src="./js/element-ui.js"></script>
+    <style>
+      .box {
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="box">
+        <el-radio-group v-model="radio1">
+          <el-radio-button label="上海"></el-radio-button>
+          <el-radio-button label="北京"></el-radio-button>
+          <el-radio-button label="广州"></el-radio-button>
+          <el-radio-button label="深圳"></el-radio-button>
+        </el-radio-group>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var vm = new Vue({
+      el: "#app",
+
+      data: function () {
+        return {
+          radio1: "",
+        };
+      },
+      created: function () {},
+      mounted: function () {},
+      methods: {},
+    });
+  </script>
+</html>
